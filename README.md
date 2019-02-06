@@ -22,16 +22,15 @@ The project is about creating a platform for skate lovers like you! so you can d
 List of other features outside of the MVPs scope
 
 User profile:
-- see my profile
-- upload my profile picture
-- see other users profile
+- see my favorites spots
+- see my reviews
+- upload profile image from your device
 - list of events created by the user
 - list events the user is attending
 
 Geo Location:
-- add geolocation to events when creating
-- show event in a map in event detail page
-- show all events in a map in the event list page
+- add geolocation when creating a new spot 
+- show spots in a map
 
 Homepage
 - ...
