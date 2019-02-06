@@ -2,7 +2,7 @@
 
 ## Description
 
-The project is about creating a communitty for skate lovers so you can 
+The project is about creating a platform for skate lovers like you! so you can discover, save, review & create new skate spots around you. Let's create the best skatepark!  
  
 ## User Stories
 
