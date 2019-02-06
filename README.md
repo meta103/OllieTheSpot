@@ -98,13 +98,9 @@ location: String
 attendees: [ObjectId<User>]
 ``` 
 
-ola k ase 
-
 ## Links
 
 ### Trello
 
 [Link to your trello board](https://trello.com) or picture of your physical board
 
-
-no commit 
