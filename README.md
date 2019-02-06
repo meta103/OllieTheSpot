@@ -98,6 +98,8 @@ location: String
 attendees: [ObjectId<User>]
 ``` 
 
+ola k ase 
+
 ## Links
 
 ### Trello
