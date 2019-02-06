@@ -2,7 +2,7 @@
 
 ## Description
 
-The project is about creating a platform for skate lovers like you! so you can discover, save, review & create new skate spots around you. Let's create the best skatepark!  
+The project is about creating a communitty for skate lovers so you can 
  
 ## User Stories
 
@@ -12,10 +12,9 @@ The project is about creating a platform for skate lovers like you! so you can d
 - **sign up** - As a user I want to sign up on the webpage so that I can see all the events that I could attend
 - **login** - As a user I want to be able to log in on the webpage so that I can get back to my account
 - **logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
-- **events list** - As a user I want to see all the events available so that I can choose which ones I want to attend
-- **events create** - As a user I want to create an event so that I can invite others to attend
-- **events detail** - As a user I want to see the event details and attendee list of one event so that I can decide if I want to attend 
-- **event attend** - As a user I want to be able to attend to event so that the organizers can count me in
+- **spots list** - As a user I want to see all the spots available so that I can choose which ones I want to visit
+- **spots create** - As a user I want to create a spot so that I can share it with other skaters
+- **spots detail** - As a user I want to see the spots details so i can decide if i want to visit it or not
 
 ## Backlog
 
