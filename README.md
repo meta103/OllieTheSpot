@@ -1,4 +1,4 @@
-# OllieTheSpot
+# Ollie The Spot
 
 ## Description
 
