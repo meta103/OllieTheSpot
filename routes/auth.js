@@ -17,8 +17,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/signup', (req, res, next) => {
-  const { username } = req.body;
-  const { password } = req.body;
+  const { email, username, password } = req.body;
   const salt = bcrypt.genSaltSync(bcryptSalt);
   const hashPass = bcrypt.hashSync(password, salt);
 
@@ -29,8 +28,10 @@ router.post('/signup', (req, res, next) => {
     return;
   }
   User.create({
+    email,
     username,
     password: hashPass,
+
   })
     .then(() => {
       res.redirect('/spots');
@@ -71,6 +72,7 @@ router.post('/login', (req, res, next) => {
       }
     })
     .catch((error) => {
+      console.log('error');
       next(error);
     });
 });

@@ -11,6 +11,12 @@ const ejs = require('ejs');
 const mongoose = require('mongoose');
 const protectedRoutes = require('./helpers/protectedRoutes');
 
+
+const indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth');
+const usersRouter = require('./routes/users');
+const spotsRouter = require('./routes/spots');
+
 mongoose
   .connect('mongodb://localhost/olliethespot', { useNewUrlParser: true })
   .then((x) => {
@@ -20,11 +26,6 @@ mongoose
     console.error('Error connecting to mongo', err);
   });
 
-
-const indexRouter = require('./routes/index');
-const authRouter = require('./routes/auth');
-const usersRouter = require('./routes/users');
-const spotsRouter = require('./routes/spots');
 
 const app = express();
 
@@ -37,12 +38,30 @@ app.set('layout', 'layouts/layout');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressLayouts);
+
+app.use(session({
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60, // 1 day
+  }),
+  secret: 'olliethespot',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000,
+  },
+}));
+
+
+app.use((req, res, next) => {
+  app.locals.currentUser = req.session.currentUser;
+  res.locals.currentUser = req.session.currentUser;
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
@@ -53,22 +72,7 @@ app.use('/spots', protectedRoutes, spotsRouter);
 app.use((req, res, next) => {
   next(createError(404));
 });
-app.use(session({
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60, // 1 day
-  }),
-  secret: 'some-string',
-  resave: true,
-  saveUninitialized: true,
-  cookie: {
-    maxAge: 24 * 60 * 60 * 1000,
-  },
-}));
-app.use((req, res, next) => {
-  app.locals.currentUser = req.session.currentUser;
-  next();
-});
+
 // error handler
 app.use((err, req, res, next) => {
   // set locals, only providing error in development

@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 
-const ObjectId = Schema.Types.ObjectId;
-
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
+const { ObjectId } = Schema.Types;
 
 const spotSchema = new Schema({
   owner: { type: ObjectId, ref: 'User' },
