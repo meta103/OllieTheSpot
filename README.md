@@ -50,57 +50,17 @@ Spots:
 ## ROUTES:
 |Route|HTTP Verb | Description|
 |---|---|---|
-||asdasdasdsad|asdasdasd|
-
-- GET / 
-  - renders the homepage
-- GET /auth/
-  - redirects to /spots if user logged in
-  - renders the signup / login form (with flash msg)
-- POST /auth/signup
-  - redirects to / if user logged in
-  - body:
-    - username
-    - email
-    - password
-  - redirects to / if user logged in
-  - renders the login form (with flash msg)
-- POST /auth/login
-  - redirects to / if user logged in
-  - body:
-    - username
-    - password
-- POST /auth/logout
-  - body: (empty)
-
-- GET /spots
-  - renders the spot list
-
-- GET /spots/:id
-  - renders the spot detail page
-
-- POST /spots/create 
-  - body: 
-    - name
-    - location
-    - description
-    - submit
-    - renders a message on /spots with flash (success creating)
-    - redirects to /spots
-
-- GET /user/:id
-  - renders user profile by id
-  - renders profile edit button
-  - redirects to /user/:id/edit if edit
-
-- GET /user/:id/edit
-  - renders form with details to edit
-
-- POST /user/:id
-  - updates user details
-  - redirect /user/:id
-
-
+|/|GET|renders the homepage|
+|/auth|GET|redirects to /spots if user logged in <br> renders the signup / login form (with flash msg)|
+|/auth/signup|POST|redirects to / if user logged in <br> body:  <br>- username  <br>- email <br>-  password <br> redirects to / if user logged in <br>renders the login form (with flash msg)|
+|/auth/login|POST|redirects to / if user logged in <br>body: <br>- username <br>- password|
+|/auth/logout|POST|body: (empty)|
+|/spots|GET|renders the spots list|
+|/spots/:id|GET|renders the spot detail page|
+|/spots/create|POST| body: <br>- name <br>- location <br>- description <br>- submit <br>- renders a message on /spots with flash (success creating) <br>- redirects to /spots|
+|/user/:id|GET|renders user profile by id <br> renders profile edit button <br> redirects to /user/:id/edit if edit|
+|/user/:id/edit|GET|renders form with details to edit|
+|/user/:id|POST|updates user details <br> redirect /user/:id|
 
 ## Models
 
@@ -126,5 +86,5 @@ attendees: [ObjectId<User>]
 
 ### Trello
 
-[Link to your trello board](https://trello.com) or picture of your physical board
+[Link to your trello board](https://trello.com/b/LboMjM8l/project-module-2)
 
