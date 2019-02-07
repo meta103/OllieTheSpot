@@ -25,15 +25,16 @@ User profile:
 - see my favorites spots
 - see my reviews
 - upload profile image from your device
-- list of events created by the user
-- list events the user is attending
+- list of my favorite spots 
+- list of people in the spot
 
 Geo Location:
 - add geolocation when creating a new spot 
 - show spots in a map
 
 Homepage
-- ...
+- show a map of spots locations
+- search bar of locations
 
 
 ## ROUTES:
