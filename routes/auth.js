@@ -10,7 +10,7 @@ const User = require('../models/user');
 const bcryptSalt = 10;
 
 
-router.get('/access', (req, res, next) => {
+router.get('/', (req, res, next) => {
   res.render('auth/access', {
     errorMessage: undefined,
   });
