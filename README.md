@@ -92,5 +92,5 @@ location: String
 
 ### Trello
 
-[Link to your trello board](https://trello.com/b/LboMjM8l/project-module-2)
-
+[Link to the trello board](https://trello.com/b/LboMjM8l/project-module-2)
+[Link to the Github board](https://github.com/meta103/OllieTheSpot)
