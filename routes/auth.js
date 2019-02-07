@@ -4,14 +4,16 @@ const express = require('express');
 
 const router = express.Router();
 const bcrypt = require('bcrypt');
-// const User = require('../models/user');
+const User = require('../models/user');
 
 // BCrypt to encrypt passwords
 const bcryptSalt = 10;
 
-// signup
-router.get('/signup', (req, res, next) => {
-  res.render('auth/signup');
+
+router.get('/access', (req, res, next) => {
+  res.render('auth/access', {
+    errorMessage: undefined,
+  });
 });
 
 router.post('/signup', (req, res, next) => {
@@ -21,7 +23,7 @@ router.post('/signup', (req, res, next) => {
   const hashPass = bcrypt.hashSync(password, salt);
 
   if (username === '' || password === '') {
-    res.render('auth/acces', {
+    res.render('auth/access', {
       errorMessage: 'Indicate a username and a password to sign up',
     });
     return;
@@ -31,25 +33,20 @@ router.post('/signup', (req, res, next) => {
     password: hashPass,
   })
     .then(() => {
-      res.redirect('/');
+      res.redirect('/spots');
     })
     .catch((error) => {
       next(error);
     });
 });
 
-// login
-
-router.get('/login', (req, res, next) => {
-  res.render('auth/login');
-});
 
 router.post('/login', (req, res, next) => {
   const { username } = req.body;
   const { password } = req.body;
 
   if (username === '' || password === '') {
-    res.render('auth/login', {
+    res.render('auth/access', {
       errorMessage: 'Indicate a username and a password to sign up',
     });
     return;
@@ -58,7 +55,7 @@ router.post('/login', (req, res, next) => {
   User.findOne({ username })
     .then((user) => {
       if (!user) {
-        res.render('auth/login', {
+        res.render('auth/access', {
           errorMessage: "The username doesn't exist",
         });
         return;
@@ -68,7 +65,7 @@ router.post('/login', (req, res, next) => {
         req.session.currentUser = user;
         res.redirect('/');
       } else {
-        res.render('auth/login', {
+        res.render('auth/access', {
           errorMessage: 'Incorrect password',
         });
       }
@@ -81,7 +78,7 @@ router.post('/login', (req, res, next) => {
 router.get('/logout', (req, res, next) => {
   req.session.destroy((err) => {
     // cannot access session here
-    res.redirect('/login');
+    res.redirect('/access');
   });
 });
 module.exports = router;
