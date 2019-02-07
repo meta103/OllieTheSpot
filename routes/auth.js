@@ -33,7 +33,8 @@ router.post('/signup', (req, res, next) => {
     password: hashPass,
 
   })
-    .then(() => {
+    .then((newUser) => {
+      req.session.currentUser = newUser;
       res.redirect('/spots');
     })
     .catch((error) => {
