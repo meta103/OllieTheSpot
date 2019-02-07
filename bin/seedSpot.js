@@ -1,6 +1,6 @@
 
 
-const Spot = require('../models/spot');
+// const Spot = require('../models/spot');
 
 
 

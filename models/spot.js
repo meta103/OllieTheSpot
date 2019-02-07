@@ -11,6 +11,6 @@ const spotSchema = new Schema({
   location: String,
 });
 
-const Spot = mongoose.model('User', spotSchema);
+const Spot = mongoose.model('Spot', spotSchema);
 
 module.exports = Spot;
