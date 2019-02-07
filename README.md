@@ -22,35 +22,47 @@ The project is about creating a platform for skate lovers like you! so you can d
 List of other features outside of the MVPs scope
 
 User profile:
+
 - see my favorites spots
 - see my reviews
 - upload profile image from your device
 - list of my favorite spots 
 - list of people in the spot
+- see other peoples profile
 
 Geo Location:
+
 - add geolocation when creating a new spot 
 - show spots in a map
+- find my location
 
 Homepage
+
 - show a map of spots locations
 - search bar of locations
 
+Spots:
+
+- tags
+- show in details the location of the spot in a map
+- show reviews
 
 ## ROUTES:
+|Route|HTTP Verb | Description|
+|---|---|---|
+||asdasdasdsad|asdasdasd|
 
 - GET / 
   - renders the homepage
-- GET /auth/signup
-  - redirects to / if user logged in
-  - renders the signup form (with flash msg)
+- GET /auth/
+  - redirects to /spots if user logged in
+  - renders the signup / login form (with flash msg)
 - POST /auth/signup
   - redirects to / if user logged in
   - body:
     - username
     - email
     - password
-- GET /auth/login
   - redirects to / if user logged in
   - renders the login form (with flash msg)
 - POST /auth/login
@@ -61,22 +73,33 @@ Homepage
 - POST /auth/logout
   - body: (empty)
 
-- GET /events
-  - renders the event list + the create form
-- POST /events/create 
-  - redirects to / if user is anonymous
+- GET /spots
+  - renders the spot list
+
+- GET /spots/:id
+  - renders the spot detail page
+
+- POST /spots/create 
   - body: 
     - name
-    - date
     - location
     - description
-- GET /events/:id
-  - renders the event detail page
-  - includes the list of attendees
-  - attend button if user not attending yet
-- POST /events/:id/attend 
-  - redirects to / if user is anonymous
-  - body: (empty - the user is already stored in the session)
+    - submit
+    - renders a message on /spots with flash (success creating)
+    - redirects to /spots
+
+- GET /user/:id
+  - renders user profile by id
+  - renders profile edit button
+  - redirects to /user/:id/edit if edit
+
+- GET /user/:id/edit
+  - renders form with details to edit
+
+- POST /user/:id
+  - updates user details
+  - redirect /user/:id
+
 
 
 ## Models
