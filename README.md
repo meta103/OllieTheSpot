@@ -46,6 +46,7 @@ Spots:
 - tags
 - show in details the location of the spot in a map
 - show reviews
+- upload image
 
 ## ROUTES:
 |Route|HTTP Verb | Description|
@@ -69,17 +70,22 @@ User model
 ```
 username: String
 password: String
+email: String
+image: string(url)
+bio: String
+
 ```
 
-Event model
+Spots model
 
 ```
+
 owner: ObjectId<User>
 name: String
 description: String
-date: Date
+image: String(url)
 location: String
-attendees: [ObjectId<User>]
+
 ``` 
 
 ## Links
