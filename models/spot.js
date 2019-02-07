@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const spotSchema = new Schema({
   owner: String,
   name: String,
   description: String,
-  image: { type: String, default: 'undefined' },
+  image: { type: String, default: 'no pic' },
   location: String,
 });
 
-const User = mongoose.model('User', userSchema);
+const Spot = mongoose.model('User', spotSchema);
 
-module.exports = User;
+module.exports = Spot;

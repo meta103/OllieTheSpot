@@ -6,8 +6,8 @@ const userSchema = new Schema({
   username: String,
   password: String,
   email: String,
-  image: { type: String, default: 'undefined' },
-  bio: { type: String, default: 'undefined' },
+  image: { type: String, default: 'no pic' },
+  bio: { type: String, default: 'no bio' },
 });
 
 const User = mongoose.model('User', userSchema);
