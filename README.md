@@ -59,9 +59,9 @@ Spots:
 |/spots|GET|renders the spots list|
 |/spots/:id|GET|renders the spot detail page|
 |/spots/create|POST| body: <br>- name <br>- location <br>- description <br>- submit <br>- renders a message on /spots with flash (success creating) <br>- redirects to /spots|
-|/user/:id|GET|renders user profile by id <br> renders profile edit button <br> redirects to /user/:id/edit if edit|
-|/user/:id/edit|GET|renders form with details to edit|
-|/user/:id|POST|updates user details <br> redirect /user/:id|
+|/profile|GET|renders user profile by id <br> renders profile edit button <br> redirects to /user/:id/edit if edit|
+|/profile/edit|GET|renders form with details to edit|
+|/profile|POST|updates user details <br> redirect /user/:id|
 
 ## Models
 
