@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 
+const ObjectId = Schema.Types.ObjectId;
+
 const Schema = mongoose.Schema;
 
 const spotSchema = new Schema({
-  owner: String,
+  owner: { type: ObjectId, ref: 'User' },
   name: String,
   description: String,
   image: { type: String, default: 'no pic' },

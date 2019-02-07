@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 const User = require('../models/user');
-const Spot = require('../models/spot');
 
 const userArray = [
   {
-    name: 'Arnold Schwarzenegger',
-    occupation: 'Actor',
+    username: 'marcos',
+    password: 'Actor',
     catchPhrase: 'I’ll be back',
   },
   {
@@ -13,17 +12,12 @@ const userArray = [
     occupation: 'Singer',
     catchPhrase: 'The older I get the more I understand Britney’s 2007 meltdown',
   },
-  {
-    name: 'Justin Timberlake',
-    occupation: 'Singer',
-    catchPhrase: 'I’ll know when I know. And until I know, I don’t know',
-  },
 ];
 
-mongoose.connect('mongodb://localhost/starter-code', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost/olliethespot', { useNewUrlParser: true })
   .then(() => {
     console.log('DB conected');
-    return Celebrity.create(celebritiesArray);
+    return User.create(userArray);
   }).then(() => {
     mongoose.connection.close();
   }).catch((error) => {
