@@ -47,7 +47,18 @@ app.use('/spots', spotsRouter);
 app.use((req, res, next) => {
   next(createError(404));
 });
-
+app.use(session({
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60, // 1 day
+  }),
+  secret: 'some-string',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000,
+  },
+}));
 // error handler
 app.use((err, req, res, next) => {
   // set locals, only providing error in development
