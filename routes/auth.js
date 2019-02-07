@@ -21,7 +21,7 @@ router.post('/signup', (req, res, next) => {
   const hashPass = bcrypt.hashSync(password, salt);
 
   if (username === '' || password === '') {
-    res.render('auth/signup', {
+    res.render('auth/acces', {
       errorMessage: 'Indicate a username and a password to sign up',
     });
     return;
