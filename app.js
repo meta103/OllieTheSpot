@@ -1,12 +1,15 @@
 const bodyParser = require('body-parser');
 const createError = require('http-errors');
 const express = require('express');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
+const protectedRoutes = require('./helpers/protectedRoutes');
 
 mongoose
   .connect('mongodb://localhost/olliethespot', { useNewUrlParser: true })
@@ -19,6 +22,7 @@ mongoose
 
 
 const indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
 const spotsRouter = require('./routes/spots');
 
@@ -30,6 +34,7 @@ app.set('view engine', 'ejs');
 app.set('layout', 'layouts/layout');
 
 // Middleware setup
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(bodyParser.json());
@@ -40,8 +45,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressLayouts);
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/spots', spotsRouter);
+app.use('/auth', authRouter);
+app.use('/users', protectedRoutes, usersRouter);
+app.use('/spots', protectedRoutes, spotsRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -59,6 +65,10 @@ app.use(session({
     maxAge: 24 * 60 * 60 * 1000,
   },
 }));
+app.use((req, res, next) => {
+  app.locals.currentUser = req.session.currentUser;
+  next();
+});
 // error handler
 app.use((err, req, res, next) => {
   // set locals, only providing error in development
