@@ -1,0 +1,12 @@
+<%if(currentUser){%>
+<%- include ../partials/_navbar.ejs%>
+<%}%>
+<img src="https://www.skatescope.com/images/spots/59749165d9e3c.jpeg" alt="">
+<h2><strong>Spot name:</strong></h2>
+<h2><%=spot.name%></h2>
+<h3><strong>Owner</strong></h3>
+<h3><%=user.username%></h3>
+<h4><strong>Location:</strong></h4>
+<h4><%=spot.location%></h4>
+<p><strong>Description</strong></p>
+<p><%=spot.description%></p>

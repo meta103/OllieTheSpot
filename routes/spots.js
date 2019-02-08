@@ -3,10 +3,16 @@ const express = require('express');
 const router = express.Router();
 
 const Spot = require('../models/spot');
+const User = require('../models/user');
 
-/* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'spot route' });
+  Spot.find()
+    .then((spots) => {
+      res.render('spots/show', { spots });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 router.get('/new', (req, res, next) => {
@@ -23,6 +29,21 @@ router.post('/new', (req, res, next) => {
     .then((result) => {
       result.save();
       res.redirect('/');
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+router.get('/:id', (req, res, next) => {
+  const { id } = req.params;
+  Spot.findById(id)
+    .then((spot) => {
+      console.log(spot.owner);
+      User.findById(spot.owner)
+        .then((user) => {
+          res.render('spots/details', { spot, user });
+        });
     })
     .catch((err) => {
       console.log(err);
