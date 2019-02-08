@@ -1,0 +1,10 @@
+<%- include ../partials/_navbar.ejs%>
+<form action="/spots/<%=spot.id%>/edit" method="POST" id="form">
+  <label for="name">Name</label>
+ <textarea type="text" name="name"><%= spot.name%></textarea>
+ <label for="description">Description</label>
+ <textarea type="text" name="description"><%= spot.description%></textarea>
+ <label for="location">Location</label>
+ <textarea type="text" name="location"><%= spot.location%></textarea>
+ <button>update</button>
+</form>

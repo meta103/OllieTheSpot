@@ -50,4 +50,32 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
+router.get('/:id/edit', (req, res, next) => {
+  const { id } = req.params;
+  Spot.findById(id)
+    .then((spot) => {
+      res.render('spots/edit', { spot });
+    });
+});
+
+router.post('/:id/edit', (req, res, next) => {
+  const { id } = req.params;
+  const { name, description, location } = req.body;
+  console.log(name, description, location);
+  Spot.findByIdAndUpdate({ _id: id }, { name, description, location })
+    .then(() => {
+      res.redirect(`/spots/${id}`);
+    })
+    .catch(next);
+});
+
+router.post('/:id/delete', (req, res, next) => {
+  const { id } = req.params;
+  Spot.findByIdAndDelete(id)
+    .then(() => {
+      res.redirect('/spots');
+    })
+    .catch(next);
+});
+
 module.exports = router;
