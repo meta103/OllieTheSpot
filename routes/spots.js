@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/new', (req, res, next) => {
-  res.render('newSpot');
+  res.render('spots/new');
   console.log(req.session.currentUser._id);
 });
 

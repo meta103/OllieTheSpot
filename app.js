@@ -9,6 +9,7 @@ const logger = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
+// const materialize = require('materialize-css');
 const protectedRoutes = require('./helpers/protectedRoutes');
 
 

@@ -21,7 +21,11 @@ router.post('/edit', (req, res, next) => {
 
 /* Put in the buttom just in case */
 router.get('/:username', (req, res, next) => {
-  res.render('user/profile', { title: 'User route' });
+  if (res.locals.currentUser.username === req.params.username) {
+    res.render('user/profile', { title: 'User route' });
+  } else {
+    res.redirect('/');
+  }
 });
 
 module.exports = router;
