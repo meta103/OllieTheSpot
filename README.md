@@ -87,7 +87,9 @@ image: String(url)
 location: String
 
 ``` 
-
+## Views
+font: montserrat
+colors:#dd2f44, #505258, #efe9e7
 ## Links
 
 ### Trello

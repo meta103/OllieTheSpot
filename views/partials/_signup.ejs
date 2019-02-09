@@ -1,16 +1,20 @@
-<form id="form" action="/auth/signup" method="POST">
-  <label for="email">Email</label><br>
-  <input type="text" name="email" placeholder="myemail@gmail.com">
-
-  <label for="username">Username</label><br>
-  <input type="text" name="username" placeholder="Your username">
-
-  <label for="password">Password</label><br>
-  <input type="password" name="password" placeholder="********">
-  <% if (errorMessage) { %>
-    <div class="error-message">
-      <%= errorMessage %>
+<div class="row">
+  <div class="col s6">
+    <div class="input-field col s12">
+      <form id="form" action="/auth/signup" method="POST">
+        <label for="username">Username</label><br>
+        <input type="text" id="autocomplete-input" class="autocomplete" name="username" placeholder="Your username">
+        <label for="email">Email</label><br>
+        <input type="text" id="autocomplete-input" class="autocomplete" name="email" placeholder="myemail@gmail.com">
+        <label for="password">Password</label><br>
+        <input type="password" id="autocomplete-input" class="autocomplete" name="password" placeholder="********">
+          <% if (errorMessage) { %>
+            <div class="error-message">
+              <%= errorMessage %>
+            </div>
+          <% } %>
+          <button type="submit">Create account</button>
+      </form>
     </div>
-  <% } %>
-  <button type="submit">Create account</button>
-</form>
+  </div>
+</div>
