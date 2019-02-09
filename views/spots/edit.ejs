@@ -1,10 +1,19 @@
+<%if(currentUser){%>
 <%- include ../partials/_navbar.ejs%>
-<form action="/spots/<%=spot.id%>/edit" method="POST" id="form">
-  <label for="name">Name</label>
- <textarea type="text" name="name"><%= spot.name%></textarea>
- <label for="description">Description</label>
- <textarea type="text" name="description"><%= spot.description%></textarea>
- <label for="location">Location</label>
- <textarea type="text" name="location"><%= spot.location%></textarea>
- <button>update</button>
+<%}%>
+
+<form action="/spots/<%=spot.id%>/edit" method="POST" class="form-control">
+  <div class="form-group">  
+    <label for="name">Name</label>
+    <textarea type="text" name="name" class="form-control mt-3"><%= spot.name%></textarea>
+  </div>
+  <div class="form-group">  
+    <label for="location">Location</label>
+    <textarea type="text" name="location" class="form-control"><%= spot.location%></textarea>
+  </div>
+  <div class="form-group">  
+    <label for="description">Description</label>
+    <textarea type="text" name="description" class="form-control" rows="6"><%= spot.description%></textarea>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block mt-5">Update</button>
 </form>
