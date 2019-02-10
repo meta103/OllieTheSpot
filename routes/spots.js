@@ -28,7 +28,7 @@ router.post('/new', (req, res, next) => {
   })
     .then((result) => {
       result.save();
-      res.redirect('/');
+      res.redirect('/spots');
     })
     .catch((err) => {
       console.log(err);

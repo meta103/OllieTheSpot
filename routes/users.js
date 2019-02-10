@@ -14,7 +14,7 @@ router.post('/edit', (req, res, next) => {
   User.findOneAndUpdate({ username: currentUserName }, { bio })
     .then(() => {
       req.session.currentUser.bio = bio;
-      res.redirect('/users/profile');
+      res.redirect(`/users/${currentUserName}`);
     })
     .catch(next);
 });

@@ -2,13 +2,28 @@
 <%- include ../partials/_navbar.ejs%>
 <%}%>
 
-<h2>List of spots</h2>
- 
-<%spots.forEach((spot) => { %>
- <h3><%=spot.name%></h3>
- <h4><%=spot.location%></h4>
- <p><%=spot.description%></p>
- <a href="/spots/<%=spot._id%>">View details</a>
-<% }) %>
 
-<a href="/spots/new"> create new </a>
+<div class="container bg-light py-5">
+  <h2 class="mb-3">List of spots</h2>
+  <div class="row">
+  <%spots.forEach((spot) => { %>
+  <div class="col-md-4">
+    <div class="card mb-4" style="width: 100%">
+      <div class="card shadow-sm">
+        <img class="card-img-top" src="https://pm1.narvii.com/5780/09062f7111fde1c936837c1a934d77f4857dae89_hq.jpg" alt="Card image cap" width="286" height="180">
+        <div class="card-body">
+          <h5 class="card-title"><h3><%=spot.name%></h3></h5>
+          <h6 class="card-subtitle"><%=spot.location%></h6>
+          <p class="card-text"><%=spot.description%></p>
+          <a href="/spots/<%=spot._id%>" class="btn btn-primary">View details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+  </div>
+</div>
+
+
+
+<a href="/spots/new" class="btn btn-lg btn-primary btn-block mt-2"> Create new </a>
