@@ -1,13 +1,19 @@
 <%if(currentUser){%>
 <%- include ../partials/_navbar.ejs%>
 <%}%>
-<img src="https://www.skatescope.com/images/spots/59749165d9e3c.jpeg" class="img-fluid" alt="">
-<h2><strong>Spot name:</strong></h2>
-<h2><%=spot.name%></h2>
-<h3><strong>Owner</strong></h3>
-<h3><%=user.username%></h3>
-<h4><strong>Location:</strong></h4>
-<h4><%=spot.location%></h4>
+<img src="https://www.skatescope.com/images/spots/59749165d9e3c.jpeg" class="img-fluid" alt="" >
+
+<div class="card w-75 floating-card shadow">
+  <div class="card-body">
+    <h4 class="card-title"><%=spot.name%></h4>
+    <div class="card-elements-bottom">
+    <h6 class="card-subtitle"><a class="nav-link" href="/users/<%=currentUser.username%>">@<%= currentUser.username %></a></h6>
+    <h6 class="card-text"><%=spot.location%></h6>
+    </div>
+  </div>
+</div>
+
+
 <p style="border-bottom: 1px solid red"><strong>Description</strong></p>
 <p><%=spot.description%></p>
 
