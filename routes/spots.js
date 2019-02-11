@@ -1,6 +1,9 @@
 const express = require('express');
+const multer = require('multer');
 
 const router = express.Router();
+// save the images in the correct directory
+const upload = multer({ dest: './public/images/uploads' });
 
 const Spot = require('../models/spot');
 const User = require('../models/user');
@@ -20,11 +23,20 @@ router.get('/new', (req, res, next) => {
   console.log(req.session.currentUser._id);
 });
 
-router.post('/new', (req, res, next) => {
+router.post('/new', upload.single('image'), (req, res, next) => {
   const { name, location, description } = req.body;
+  const image = req.file;
+  let imagePathRaw = image.path;
+  // taking out the public from path
+  imagePathRaw = imagePathRaw.split('public');
+  imagePath = `${imagePathRaw[1]}`;
   const owner = req.session.currentUser._id;
   Spot.create({
-    owner, name, location, description,
+    owner,
+    name,
+    location,
+    description,
+    image: imagePath,
   })
     .then((result) => {
       result.save();

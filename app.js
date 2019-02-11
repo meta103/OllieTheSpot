@@ -11,7 +11,7 @@ const ejs = require('ejs');
 const mongoose = require('mongoose');
 const multer = require('multer');
 
-const upload = multer({ dest: 'uploads/' });
+
 const protectedRoutes = require('./helpers/protectedRoutes');
 
 
