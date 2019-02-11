@@ -1,20 +1,36 @@
 const express = require('express');
+const multer = require('multer');
 const User = require('../models/user');
 
 const router = express.Router();
+
+const upload = multer({ dest: './public/images/Profile-pictures/uploads' });
 
 router.get('/edit', (req, res, next) => {
   res.render('user/edit');
   console.log(req.session.currentUser.username);
 });
-router.post('/edit', (req, res, next) => {
+router.post('/edit', upload.single('image'), (req, res, next) => {
   const currentUserName = req.session.currentUser.username;
   const { bio } = req.body;
+  const image = req.file;
+  let imagePathRaw = image.path;
 
-  User.findOneAndUpdate({ username: currentUserName }, { bio })
+  imagePathRaw = imagePathRaw.split('public');
+  console.log(`IMAGE PATH RAAAAAAAAAAaAaAAw ${imagePathRaw}`);
+  const imagePath = imagePathRaw[1];
+
+
+
+  User.findOneAndUpdate({ username: currentUserName }, { bio, image: imagePath })
+    .then(() => {
+      req.session.currentUser.image = imagePath;
+    })
     .then(() => {
       req.session.currentUser.bio = bio;
-      res.redirect(`/users/${currentUserName}`);
+
+      res.render('user/profile');
+      //res.redirect(`/users/${currentUserName}`);
     })
     .catch(next);
 });
