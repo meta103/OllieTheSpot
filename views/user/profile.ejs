@@ -1,7 +1,11 @@
 <%- include ../partials/_navbar.ejs%>
-<p>@<%= currentUser.username %><p>
-<p><%= currentUser.image%></p>
-<p><%= currentUser.email%></p>
-<p><%= currentUser.bio%></p>
-
+<div class="cover-picture">
+</div>
+</div>
+<img src="<%=currentUser.image%>" class="image--cover" alt="">
+<div class="profile-details-container">
+  <h3>@<%= currentUser.username %></h3>
+  <p><%= currentUser.email%></p>
+  <p><%= currentUser.bio%></p>
+</div>
 <a href="./edit"> edit</a>

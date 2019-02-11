@@ -16,7 +16,7 @@
 .floating-card{
   top: -60px;
   margin: 0 auto;
-  background-color: rgba(239, 233, 231, 0.7);
+  background-color: rgba(239, 233, 231, 0.8);
   color: black;
   border:none;
   
@@ -25,7 +25,35 @@
 .card-elements-bottom{
   display:flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items:baseline;
   margin-top: 2em;
+
 }
 
+hr{
+  width: 90%
+}
+
+.spot-decription{
+  text-align: justify;
+  padding: 0 1rem;
+}
+.cover-picture{
+  width: 100%;
+  background-image: url('http://lorempixel.com/400/200/abstract/');
+  height: 20vh;
+}
+
+.image--cover {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  top:-80px;
+}
+.profile-details-container{
+  position: relative;
+  top:-60px;
+}
