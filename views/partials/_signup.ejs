@@ -1,17 +1,16 @@
+<img src="/images/OllieTheSpotIcon.png" alt="" class="mb-4 mt-4" width="100" height="100">
+<form class="no-display form-control" action="/auth/signup" method="POST">
+    <h2>Sign up</h2>
 
-      <form class="no-display" id="form" action="/auth/signup" method="POST">
-         <h2>Sign up</h2>
-        <label for="username">Username</label><br>
-        <input type="text" id="autocomplete-input" class="autocomplete" name="username" placeholder="Your username">
-        <label for="email">Email</label><br>
-        <input type="text" id="autocomplete-input" class="autocomplete" name="email" placeholder="myemail@gmail.com">
-        <label for="password">Password</label><br>
-        <input type="password" id="autocomplete-input" class="autocomplete" name="password" placeholder="********">
-          <% if (errorMessage) { %>
-            <div class="error-message">
-              <%= errorMessage %>
-            </div>
-          <% } %>
-          <button type="submit">Create account</button>
-      </form>
-    
+  <input type="text" id="autocomplete-input" class="autocomplete form-control mt-5" name="username" placeholder="Username">
+  
+  <input type="text" id="autocomplete-input" class="autocomplete form-control" name="email" placeholder="myemail@gmail.com">
+  
+  <input type="password" id="autocomplete-input" class="autocomplete form-control" name="password" placeholder="********">
+    <% if (errorMessage) { %>
+      <div class="error-message">
+        <%= errorMessage %>
+      </div>
+    <% } %>
+    <button type="submit" class="btn btn-lg btn-primary btn-block mt-5">Create account</button>
+</form>

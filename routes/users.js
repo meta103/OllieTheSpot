@@ -44,9 +44,6 @@ router.get('/:username', (req, res, next) => {
 /* To enter to owner's profile by clicking on the user name in the spot details */
 router.get('/guest/:username', (req, res, next) => {
   const { username } = req.params;
-  console.log("userr name of owner", username);
-  console.log("userr name of current", req.session.currentUser.username);
-
   if (username === req.session.currentUser.username) {
     res.redirect(`/users/${username}`);
   }
