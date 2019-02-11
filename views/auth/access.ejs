@@ -1,20 +1,25 @@
-<section class="form-wrapper">
-<div class="row" id="login">
-  <div id="login-form-wrapper" class="col s12 col-md-12 access-form input-field">
-  <%- include ../partials/_login.ejs%>
-  </div>
-</div>
-<div class="row hide" id="sign-up">
-  <div id="signup-form-wrapper" class="col s12 col-md-12 access-form input-field">
-  <%- include ../partials/_signup.ejs%>
-  </div>
-</div>
-
-<div class="access-container">
-  <p class="text-muted access-text">
-  Don't have an account yet?
-  </p>
-  <button class="access-button">Sign up</button>
-</div>
-
+  <div class="access-container">
+    <div class="access-card">
+      <div class="login">
+        <div class="row" id="login">
+            <div id="login-form-wrapper" class="col s12 col-md-12 access-form input-field">
+                <%- include ../partials/_login.ejs%>
+            </div>
+        </div>
+      </div>
+      <div class="signup">
+        <div class="row" id="sign-up">
+          <div id="signup-form-wrapper" class="col s12 col-md-12 access-form input-field">
+            <%- include ../partials/_signup.ejs%>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="access-action">
+    <p class="access-text">Don't you have an account?</p><button class="access-button">Sign up</button>
+    </div>
+    </div>
+ 
   
+ 

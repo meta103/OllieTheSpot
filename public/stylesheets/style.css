@@ -62,13 +62,42 @@ hr{
   display:none;
 }
 
-.access-button{
-  position:relative;
-  bottom:0
+.access-action{
+  position:absolute;
+  bottom:10rem;
 }
 
-.access-container{
-  position: relative;
-  margin-top: 50vh;
 
+
+/****SPIN THE LOGIN******/
+
+
+.access-card{
+  position:absolute;
+  width:100%;
+  height:100%;
+  transform-style:preserve-3d;
+  transition:all 0.8s ease;
+  
+}
+.access-card-hover{
+  transform: rotateY(180deg)
+}
+.login{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+ 
+
+}
+
+.signup{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform:rotateY(180deg);
+  background-color: white
+  
 }

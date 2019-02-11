@@ -1,18 +1,19 @@
 const accessSignUp = document.querySelector('#sign-up');
 const accessLogIn = document.querySelector('#login');
-const signUpButton = document.querySelector('.access-button');
+const accessButton = document.querySelector('.access-button');
 const accessText = document.querySelector('.access-text');
+const card = document.querySelector('.access-card');
 
-
-signUpButton.addEventListener('click', () => {
-  accessSignUp.classList.toggle('hide');
-  accessLogIn.classList.toggle('hide');
-  if (signUpButton.innerHTML === 'Log in') {
+accessButton.addEventListener('click', () => {
+  // accessSignUp.classList.toggle('hide');
+  // accessLogIn.classList.toggle('hide');
+  card.classList.toggle('access-card-hover');
+  if (accessButton.innerHTML === 'Log in') {
     accessText.innerHTML = 'Don\'t have an account yet?';
-    signUpButton.innerHTML = 'Sign up';
+    accessButton.innerHTML = 'Sign up';
   } else {
     accessText.innerHTML = 'Do you have an account?';
-    signUpButton.innerHTML = 'Log in';
+    accessButton.innerHTML = 'Log in';
   }
   console.log('hi');
 });
