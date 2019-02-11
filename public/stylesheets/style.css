@@ -57,3 +57,12 @@ hr{
   position: relative;
   top:-60px;
 }
+/**signup**/
+.hide{
+  display:none;
+}
+
+.access-button{
+  position:relative;
+  bottom:0
+}
