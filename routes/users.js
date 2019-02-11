@@ -17,7 +17,6 @@ router.post('/edit', upload.single('image'), (req, res, next) => {
   let imagePathRaw = image.path;
 
   imagePathRaw = imagePathRaw.split('public');
-  console.log(`IMAGE PATH RAAAAAAAAAAaAaAAw ${imagePathRaw}`);
   const imagePath = imagePathRaw[1];
 
 
@@ -30,7 +29,6 @@ router.post('/edit', upload.single('image'), (req, res, next) => {
       req.session.currentUser.bio = bio;
 
       res.render('user/profile');
-      //res.redirect(`/users/${currentUserName}`);
     })
     .catch(next);
 });
