@@ -29,7 +29,7 @@ router.post('/new', upload.single('image'), (req, res, next) => {
   let imagePathRaw = image.path;
   // taking out the public from path
   imagePathRaw = imagePathRaw.split('public');
-  imagePath = `${imagePathRaw[1]}`;
+  const imagePath = imagePathRaw[1];
   const owner = req.session.currentUser._id;
   Spot.create({
     owner,

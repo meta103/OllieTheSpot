@@ -7,7 +7,7 @@ const spotSchema = new Schema({
   owner: { type: ObjectId, ref: 'User' },
   name: String,
   description: String,
-  image: { type: String, default: 'no pic' },
+  image: { type: String, default: 'https://www.skatescope.com/images/spots/59749165d9e3c.jpeg' },
   location: String,
 });
 
