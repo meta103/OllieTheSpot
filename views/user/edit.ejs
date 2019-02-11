@@ -1,5 +1,5 @@
 <%- include ../partials/_navbar.ejs%>
-<form action="/users/edit" method="POST" id="form" class="form-control">
+<form action="/users/edit" method="POST" id="form" enctype='multipart/form-data' class="form-control">
   <div class="form-group">    
     <label for="image">Change profile picture</label>
     <input type="file" name="image" />
