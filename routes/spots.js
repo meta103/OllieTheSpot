@@ -51,7 +51,6 @@ router.get('/:id', (req, res, next) => {
   const { id } = req.params;
   Spot.findById(id)
     .then((spot) => {
-      console.log(spot.owner);
       User.findById(spot.owner)
         .then((user) => {
           res.render('spots/details', { spot, user });
