@@ -30,7 +30,6 @@ router.post('/edit', upload.single('image'), (req, res, next) => {
       req.session.currentUser.bio = bio;
 
       res.render('user/profile');
-      //res.redirect(`/users/${currentUserName}`);
     })
     .catch(next);
 });
