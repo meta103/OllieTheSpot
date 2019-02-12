@@ -10,6 +10,7 @@ const expressLayouts = require('express-ejs-layouts');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 const multer = require('multer');
+require('dotenv').config();
 
 
 const protectedRoutes = require('./helpers/protectedRoutes');
@@ -20,8 +21,10 @@ const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
 const spotsRouter = require('./routes/spots');
 
+console.log(process.env.DB_URL);
+
 mongoose
-  .connect('mongodb://localhost/olliethespot', { useNewUrlParser: true })
+  .connect(process.env.DB_URL, { useNewUrlParser: true })
   .then((x) => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })

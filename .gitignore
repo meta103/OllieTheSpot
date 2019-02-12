@@ -35,3 +35,6 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+
+# dotenv enviroment variable file
+.env

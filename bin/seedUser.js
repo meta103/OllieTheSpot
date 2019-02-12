@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../models/user');
+require('dotenv').config();
 
 const userArray = [
   {
@@ -14,7 +15,7 @@ const userArray = [
   },
 ];
 
-mongoose.connect('mongodb://localhost/olliethespot', { useNewUrlParser: true })
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true })
   .then(() => {
     console.log('DB conected');
     return User.create(userArray);
