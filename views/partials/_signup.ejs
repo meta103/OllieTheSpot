@@ -2,11 +2,11 @@
 <form class="no-display form-control" action="/auth/signup" method="POST">
     <h2>Sign up</h2>
 
-  <input type="text" id="autocomplete-input" class="autocomplete form-control mt-5" name="username" placeholder="Username">
+  <input type="text" id="autocomplete-input" class="autocomplete form-control mt-5" name="username" placeholder="Username" required>
   
-  <input type="text" id="autocomplete-input" class="autocomplete form-control" name="email" placeholder="myemail@gmail.com">
+  <input type="text" id="autocomplete-input" class="autocomplete form-control" name="email" placeholder="myemail@gmail.com" required>
   
-  <input type="password" id="autocomplete-input" class="autocomplete form-control" name="password" placeholder="********">
+  <input type="password" id="autocomplete-input" class="autocomplete form-control" name="password" placeholder="********" required>
     <% if (errorMessage) { %>
       <div class="error-message">
         <%= errorMessage %>

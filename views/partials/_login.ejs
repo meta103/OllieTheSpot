@@ -2,9 +2,9 @@
 <form action="/auth/login" method="POST" class="form-control">
   <h2>Sign in</h2>
 
-  <input type="text" class="form-control mt-5" name="username" placeholder="Username">
+  <input type="text" class="form-control mt-5" name="username" placeholder="Username" required>
 
-  <input type="password" class="form-control" name="password" placeholder="Password">
+  <input type="password" class="form-control" name="password" placeholder="Password" required>
 
   <% if (errorMessage) { %>
     <div class="error-message"><%= errorMessage %></div>

@@ -12,12 +12,6 @@ cloudinary.config({
 
 const router = express.Router();
 
-// const storage = cloudinaryStorage({
-//   cloudinary,
-//   folder: 'users',
-//   allowedFormats: ['jpg', 'png'],
-//   transformation: [{ width: 500, height: 500, crop: 'limit' }],
-// });
 
 const upload = multer({ dest: './public/images/Profile-pictures/uploads' });
 
@@ -31,20 +25,18 @@ router.post('/edit', upload.single('image'), (req, res, next) => {
   const image = req.file;
 
   cloudinary.v2.uploader.upload(image.path, (error, result) => {
-    console.log(result);
-  })
-    .then((result) => {
-      User.findOneAndUpdate({ username: currentUserName }, { bio, image: result.url })
-        .then(() => {
-          req.session.currentUser.image = result.url;
-        })
-        .then(() => {
-          req.session.currentUser.bio = bio;
+    User.findOneAndUpdate({ username: currentUserName }, { bio, image: result.url })
+      .then(() => {
+        req.session.currentUser.image = result.url;
+      })
+      .then(() => {
+        req.session.currentUser.bio = bio;
 
-          res.render('user/profile');
-        })
-        .catch(next);
-    });
+        res.render('user/profile');
+      })
+      .catch(next);
+  })
+    .catch(next);
 });
 
 /* Put in the buttom just in case */
