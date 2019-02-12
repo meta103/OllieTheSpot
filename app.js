@@ -54,7 +54,7 @@ app.use(session({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60, // 1 day
   }),
-  secret: 'olliethespot',
+  secret: process.env.SECRET,
   resave: true,
   saveUninitialized: true,
   cookie: {
