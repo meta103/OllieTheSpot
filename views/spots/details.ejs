@@ -19,7 +19,7 @@
 <hr>
 
 <p class="spot-decription"><%=spot.description%></p>
-<%if(user.username === currentUser.name){%>
+<%if(user.username === currentUser.username){%>
 <a href="/spots/<%=spot._id%>/edit"> Edit the spot </a>
 
 <form action="/spots/<%=spot._id%>/delete" method="post">
