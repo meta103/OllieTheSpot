@@ -57,3 +57,50 @@ hr{
   position: relative;
   top:-60px;
 }
+/**signup**/
+.hide{
+  display:none;
+}
+
+.access-action{
+  position:absolute;
+  bottom:8rem;
+  right: 5rem;
+  left: 5rem;
+
+}
+
+
+
+/****SPIN THE LOGIN******/
+
+
+.access-card{
+  position:absolute;
+  width:100%;
+  height:100%;
+  transform-style:preserve-3d;
+  transition:all 0.8s ease;
+  
+}
+.access-card-hover{
+  transform: rotateY(180deg)
+}
+.login{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+ 
+
+}
+
+.signup{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform:rotateY(180deg);
+  background-color: white
+  
+}

@@ -18,6 +18,7 @@ cloudinary.config({
   api_key: process.env.API_KEY,
   api_secret: process.env.API_SECRET,
 });
+require('dotenv').config();
 
 
 const protectedRoutes = require('./helpers/protectedRoutes');
@@ -28,8 +29,10 @@ const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
 const spotsRouter = require('./routes/spots');
 
+console.log(process.env.DB_URL);
+
 mongoose
-  .connect('mongodb://localhost/olliethespot', { useNewUrlParser: true })
+  .connect(process.env.DB_URL, { useNewUrlParser: true })
   .then((x) => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
@@ -59,7 +62,7 @@ app.use(session({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60, // 1 day
   }),
-  secret: 'olliethespot',
+  secret: process.env.SECRET,
   resave: true,
   saveUninitialized: true,
   cookie: {

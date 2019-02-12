@@ -45,5 +45,17 @@ router.get('/:username', (req, res, next) => {
     res.redirect('/');
   }
 });
+/* To enter to owner's profile by clicking on the user name in the spot details */
+router.get('/guest/:username', (req, res, next) => {
+  const { username } = req.params;
+  if (username === req.session.currentUser.username) {
+    res.redirect(`/users/${username}`);
+  }
+  User.findOne({ username })
+    .then((owner) => {
+      res.render('user/profile-guest', { owner });
+    })
+    .catch(next);
+});
 
 module.exports = router;
