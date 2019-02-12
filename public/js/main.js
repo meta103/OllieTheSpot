@@ -4,6 +4,7 @@ const accessButton = document.querySelector('.access-button');
 const accessText = document.querySelector('.access-text');
 const card = document.querySelector('.access-card');
 
+
 accessButton.addEventListener('click', () => {
   // accessSignUp.classList.toggle('hide');
   // accessLogIn.classList.toggle('hide');
@@ -17,3 +18,4 @@ accessButton.addEventListener('click', () => {
   }
   console.log('hi');
 });
+
