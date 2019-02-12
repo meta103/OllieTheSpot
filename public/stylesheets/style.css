@@ -64,7 +64,10 @@ hr{
 
 .access-action{
   position:absolute;
-  bottom:10rem;
+  bottom:8rem;
+  right: 5rem;
+  left: 5rem;
+
 }
 
 
