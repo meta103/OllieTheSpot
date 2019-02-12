@@ -1,5 +1,7 @@
 const express = require('express');
 const multer = require('multer');
+const cloudinary = require('cloudinary');
+const cloudinaryStorage = require('multer-storage-cloudinary');
 
 const router = express.Router();
 // save the images in the correct directory
