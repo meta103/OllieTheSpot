@@ -3,8 +3,14 @@ const multer = require('multer');
 
 const router = express.Router();
 // save the images in the correct directory
-const upload = multer({ dest: './public/images/uploads' });
+const storage = cloudinaryStorage({
+  cloudinary,
+  folder: 'demo',
+  allowedFormats: ['jpg', 'png'],
+  transformation: [{ width: 500, height: 500, crop: 'limit' }],
+});
 
+const upload = multer({ dest: './public/images/uploads' });
 const Spot = require('../models/spot');
 const User = require('../models/user');
 

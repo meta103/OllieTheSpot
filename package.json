@@ -9,6 +9,7 @@
   "dependencies": {
     "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
+    "cloudinary": "^1.13.2",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^2.0.3",
     "cookie-parser": "~1.4.3",
@@ -21,7 +22,8 @@
     "materialize-css": "^1.0.0-rc.2",
     "mongoose": "^5.4.10",
     "morgan": "~1.9.0",
-    "multer": "^1.4.1"
+    "multer": "^1.4.1",
+    "multer-storage-cloudinary": "^2.2.1"
   },
   "devDependencies": {
     "eslint": "^5.13.0",
