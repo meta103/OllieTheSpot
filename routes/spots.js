@@ -5,13 +5,11 @@ const cloudinaryStorage = require('multer-storage-cloudinary');
 
 const router = express.Router();
 // save the images in the correct directory
-const storage = cloudinaryStorage({
-  cloudinary,
-  folder: 'demo',
-  allowedFormats: ['jpg', 'png'],
-  transformation: [{ width: 500, height: 500, crop: 'limit' }],
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
 });
-
 const upload = multer({ dest: './public/images/uploads' });
 const Spot = require('../models/spot');
 const User = require('../models/user');
@@ -33,26 +31,25 @@ router.get('/new', (req, res, next) => {
 
 router.post('/new', upload.single('image'), (req, res, next) => {
   const { name, location, description } = req.body;
-  const image = req.file;
-  let imagePathRaw = image.path;
-  // taking out the public from path
-  imagePathRaw = imagePathRaw.split('public');
-  const imagePath = imagePathRaw[1];
   const owner = req.session.currentUser._id;
-  Spot.create({
-    owner,
-    name,
-    location,
-    description,
-    image: imagePath,
-  })
-    .then((result) => {
-      result.save();
-      res.redirect('/spots');
+  const image = req.file;
+  const imagePathRaw = image.path;
+  cloudinary.v2.uploader.upload(image.path, (error, result) => {
+    Spot.create({
+      owner,
+      name,
+      location,
+      description,
+      image: result.url,
     })
-    .catch((err) => {
-      console.log(err);
-    });
+      .then((spot) => {
+        spot.save();
+        res.redirect('/spots');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 });
 
 router.get('/:id', (req, res, next) => {

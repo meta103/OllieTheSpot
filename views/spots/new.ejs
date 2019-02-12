@@ -4,18 +4,18 @@
 
 <h2 class="mt-3">Add a new spot</h2>
 <form action="/spots/new" method="post" class="form-control" enctype='multipart/form-data'>
-<input type="file" name="image" />  
+<input type="file" name="image" required/>  
   <div class="form-group">
     <label for="">Name</label>
-    <textarea type="text" name="name" placeholder="Enter the name of the spot" class="form-control mt-3"></textarea>
+    <textarea type="text" name="name" placeholder="Enter the name of the spot" class="form-control mt-3" required></textarea>
   </div>
   <div class="form-group">
     <label for="">Location</label>
-    <textarea type="text" name="location" placeholder="Choose the location" class="form-control"></textarea>
+    <textarea type="text" name="location" placeholder="Choose the location" class="form-control" required></textarea>
   </div>
   <div class="form-group">  
     <label for="">Description</label>
-    <textarea class="form-control" rows="6" name="description" placeholder="Write a short description of the spot"></textarea>
+    <textarea class="form-control" rows="6" name="description" placeholder="Write a short description of the spot" required></textarea>
   </div>  
 <button type="submit" class="btn btn-lg btn-primary btn-block mt-5">Add</button>
 </form>
