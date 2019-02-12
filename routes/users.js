@@ -25,17 +25,16 @@ router.post('/edit', upload.single('image'), (req, res, next) => {
   const image = req.file;
 
   cloudinary.v2.uploader.upload(image.path, (error, result) => {
-    User.findOneAndUpdate({ username: currentUserName }, { bio, image: result.url })
-      .then(() => {
-        req.session.currentUser.image = result.url;
-      })
-      .then(() => {
-        req.session.currentUser.bio = bio;
-
-        res.render('user/profile');
-      })
-      .catch(next);
+    console.log('image path:', image.path);
   })
+    .then((result) => {
+      User.findOneAndUpdate({ username: currentUserName }, { bio, image: result.url });
+      req.session.currentUser.image = result.url;
+      req.session.currentUser.bio = bio;
+    })
+    .then(() => {
+      res.render('user/profile');
+    })
     .catch(next);
 });
 
