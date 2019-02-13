@@ -33,12 +33,12 @@
 
 <div id='map'></div>
 <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoiZHJlYXp6IiwiYSI6ImNqcnNkMjhxMTBqMXo0NG52cW1pMGd0NnQifQ.Pd6wO6XvwiskVEt38xXG5A';
+mapboxgl.accessToken =<%-`"${token}"`%>;
 var map = new mapboxgl.Map({
 container: 'map', // container id
 style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
 center: [<%=spot.location%>], // starting position [lng, lat]
-zoom: 9 // starting zoom
+zoom: 15 // starting zoom
 });
 console.log("spot location: ",<%=spot.location%>)
 </script>

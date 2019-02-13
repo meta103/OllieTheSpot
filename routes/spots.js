@@ -3,6 +3,9 @@ const multer = require('multer');
 const cloudinary = require('cloudinary');
 const cloudinaryStorage = require('multer-storage-cloudinary');
 
+require('dotenv').config();
+
+
 const router = express.Router();
 // save the images in the correct directory
 cloudinary.config({
@@ -58,7 +61,8 @@ router.get('/:id', (req, res, next) => {
     .then((spot) => {
       User.findById(spot.owner)
         .then((user) => {
-          res.render('spots/details', { spot, user });
+          res.render('spots/details', { spot, user, token: process.env.MAPBOX });
+          console.log('toooooken: ', process.env.MAPBOX);
         });
     })
     .catch((err) => {
