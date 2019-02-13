@@ -1,3 +1,4 @@
+
 <%if(currentUser){%>
 <%- include ../partials/_navbar.ejs%>
 <%}%>
@@ -33,6 +34,7 @@
 
 <div id='map'></div>
 <script>
+
 mapboxgl.accessToken =<%-`"${token}"`%>;
 var map = new mapboxgl.Map({
 container: 'map', // container id
@@ -40,5 +42,8 @@ style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
 center: [<%=spot.location%>], // starting position [lng, lat]
 zoom: 15 // starting zoom
 });
+new mapboxgl.Marker({anchor: 'center', color:'red'})
+.setLngLat([<%=spot.location%>])
+.addTo(map);
 console.log("spot location: ",<%=spot.location%>)
 </script>
