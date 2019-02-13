@@ -19,17 +19,17 @@ accessButton.addEventListener('click', () => {
   console.log('hi');
 });
 
-// function getLocation() {
-//   console.log('GEOLOCATION FUNCTION CALLED');
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(showPosition);
-//   } else {
-//     x.innerHTML = "Geolocation is not supported by this browser.";
-//   }
-// }
+function getLocation() {
+  console.log('GEOLOCATION FUNCTION CALLED');
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
 
-// function showPosition(position) {
-//   coordinatesTest.innerHTML = `${position.coords.latitude},${position.coords.longitude}`;
-//   console.log("Latitude: " + position.coords.latitude +
-//     " Longitude: " + position.coords.longitude);
-// }
+function showPosition(position) {
+  coordinatesTest.innerHTML = `${position.coords.latitude},${position.coords.longitude}`;
+  console.log("Latitude: " + position.coords.latitude +
+    " Longitude: " + position.coords.longitude);
+}
