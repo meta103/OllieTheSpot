@@ -45,8 +45,5 @@ zoom: 15 // starting zoom
 new mapboxgl.Marker({anchor: 'center', color:'red'})
 .setLngLat([<%=spot.location%>])
 .addTo(map);
-new mapboxgl.Marker({anchor: 'center', color:'red'})
-.setLngLat([<%=spot.location%>])
-.addTo(map);
 console.log("spot location: ",<%=spot.location%>)
 </script>
