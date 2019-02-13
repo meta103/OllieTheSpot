@@ -29,7 +29,7 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  coordinatesTest.innerHTML = `${position.coords.latitude},${position.coords.longitude}`;
+  coordinatesTest.innerHTML = `${position.coords.longitude},${position.coords.latitude}`;
   console.log("Latitude: " + position.coords.latitude +
     " Longitude: " + position.coords.longitude);
 }
