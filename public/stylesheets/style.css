@@ -91,8 +91,6 @@ hr{
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
- 
-
 }
 
 .signup{
@@ -113,3 +111,42 @@ hr{
   margin: 3rem 1rem;
   text-align: justify;
 }
+
+/*****SPIN THE MAP************/
+.spots-card{
+  position:absolute;
+  width:100%;
+  height:100%;
+  transform-style:preserve-3d;
+  transition:all 0.8s ease;
+ 
+  
+}
+.align-center{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.access-card-hover{
+  transform: rotateY(180deg)
+}
+.spots-container{
+  position: absolute;
+  width: 100%;
+  height: 100%; 
+  backface-visibility: hidden;
+}
+
+#show-map{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform:rotateY(180deg);
+  background-color: white
+  
+}
+ .hide{
+  display:none;
+} 

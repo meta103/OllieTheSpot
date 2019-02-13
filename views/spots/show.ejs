@@ -1,25 +1,33 @@
 <%if(currentUser){%>
 <%- include ../partials/_navbar.ejs%>
 <%}%>
-
-<div class="container bg-light py-5">
-  <h2 class="mb-3">List of spots</h2>
-  <div class="row">
-  <%spots.forEach((spot) => { %>
-  <div class="col-md-4">
-    <div class="card mb-4" style="width: 100%">
-      <div class="card shadow-sm">
-        <img class="card-img-top" src="<%=spot.image%>" alt="Card image cap" width="286" height="180">
-        <div class="card-body">
-          <h5 class="card-title"><h3><%=spot.name%></h3></h5>
-          <h6 class="card-subtitle">Barcelona</h6>
-          <p class="card-text description"><%=spot.description%></p>
-          <a href="/spots/<%=spot._id%>" class="btn btn-primary">View details</a>
+<button id="map-button" onClick="turnmap()">map</button> 
+<div>
+<div class="spots-card align-center">
+      <div class="container  bg-light py-5 spots-container">
+      <h2 class="mb-3 ">List of spots</h2>
+      <div class="row">
+      <%spots.forEach((spot) => { %>
+      <div class="col-md-4">
+        <div class="card mb-4" style="width: 100%">
+          <div class="card shadow-sm">
+            <img class="card-img-top" src="<%=spot.image%>" alt="Card image cap" width="286" height="180">
+            <div class="card-body">
+              <h5 class="card-title"><h3><%=spot.name%></h3></h5>
+              <h6 class="card-subtitle">Barcelona</h6>
+              <p class="card-text description"><%=spot.description%></p>
+              <a href="/spots/<%=spot._id%>" class="btn btn-primary">View details</a>
+            </div>
+          </div>
         </div>
       </div>
+      <% }) %>
+      </div>
     </div>
-  </div>
-  <% }) %>
+
+    <div id="show-map" >
+    </div>
+
   </div>
 </div>
 
@@ -29,4 +37,20 @@
 
 
 
+<script>
+mapboxgl.accessToken =<%-`"${token}"`%>;
+var map = new mapboxgl.Map({
+container: 'show-map', // container id
+style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+center: [2.154007,41.390205], // starting position [lng, lat]
+zoom: 15 // starting zoom
+});
 
+spots.forEach((spot) => {
+  
+new mapboxgl.Marker({anchor: 'center', color:'red'})
+.setLngLat([spot.location])
+.addTo(map);
+})
+
+</script>
