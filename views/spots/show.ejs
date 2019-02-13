@@ -1,11 +1,11 @@
 <%if(currentUser){%>
 <%- include ../partials/_navbar.ejs%>
 <%}%>
-<button id="map-button">map</button> 
-<div class="spots-container">
-  <div class="spots-card">
-    <div class="container bg-light py-5">
-      <h2 class="mb-3">List of spots</h2>
+<button id="map-button" onClick="turnmap()">map</button> 
+<div>
+<div class="spots-card align-center">
+      <div class="container  bg-light py-5 spots-container">
+      <h2 class="mb-3 ">List of spots</h2>
       <div class="row">
       <%spots.forEach((spot) => { %>
       <div class="col-md-4">
@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <div id="show-map">
+    <div id="show-map" >
     </div>
 
   </div>
@@ -38,16 +38,19 @@
 
 
 <script>
-
 mapboxgl.accessToken =<%-`"${token}"`%>;
 var map = new mapboxgl.Map({
 container: 'show-map', // container id
 style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
-center: [<%=spot.location%>], // starting position [lng, lat]
+center: [2.154007,41.390205], // starting position [lng, lat]
 zoom: 15 // starting zoom
 });
+
+spots.forEach((spot) => {
+  
 new mapboxgl.Marker({anchor: 'center', color:'red'})
-.setLngLat([<%=spot.location%>])
+.setLngLat([spot.location])
 .addTo(map);
+})
 
 </script>

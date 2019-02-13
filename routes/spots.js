@@ -20,7 +20,7 @@ const User = require('../models/user');
 router.get('/', (req, res, next) => {
   Spot.find()
     .then((spots) => {
-      res.render('spots/show', { spots });
+      res.render('spots/show', { spots, token: process.env.MAPBOX });
     })
     .catch((err) => {
       console.log(err);
@@ -62,7 +62,6 @@ router.get('/:id', (req, res, next) => {
       User.findById(spot.owner)
         .then((user) => {
           res.render('spots/details', { spot, user, token: process.env.MAPBOX });
-          console.log('toooooken: ', process.env.MAPBOX);
         });
     })
     .catch((err) => {

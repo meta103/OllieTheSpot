@@ -3,8 +3,11 @@ const accessLogIn = document.querySelector('#login');
 const accessButton = document.querySelector('.access-button');
 const accessText = document.querySelector('.access-text');
 const card = document.querySelector('.access-card');
+const spotsCard = document.querySelector('.spots-card');
+const spotsContainer = document.querySelector('.spots-container');
+const spotsMap = document.querySelector('#show-map');
 const coordinatesTest = document.querySelector('#demo');
-
+// spin the auth
 accessButton.addEventListener('click', () => {
   // accessSignUp.classList.toggle('hide');
   // accessLogIn.classList.toggle('hide');
@@ -18,18 +21,23 @@ accessButton.addEventListener('click', () => {
   }
   console.log('hi');
 });
-
+// spin the map in spots
+function turnmap() {
+  spotsCard.classList.toggle('access-card-hover');
+  spotsCard.classList.toggle('align-center');
+  spotsContainer.classList.toggle('hide');
+}
 function getLocation() {
   console.log('GEOLOCATION FUNCTION CALLED');
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    x.innerHTML = 'Geolocation is not supported by this browser.';
   }
 }
 
 function showPosition(position) {
   coordinatesTest.innerHTML = `${position.coords.longitude},${position.coords.latitude}`;
-  console.log("Latitude: " + position.coords.latitude +
-    " Longitude: " + position.coords.longitude);
+  console.log(`Latitude: ${position.coords.latitude
+  } Longitude: ${position.coords.longitude}`);
 }
