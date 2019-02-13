@@ -29,10 +29,10 @@ const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
 const spotsRouter = require('./routes/spots');
 
-console.log(process.env.DB_URL);
+console.log(process.env.MONGODB_URI);
 
 mongoose
-  .connect(process.env.DB_URL, { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then((x) => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })

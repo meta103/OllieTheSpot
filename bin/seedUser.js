@@ -15,7 +15,7 @@ const userArray = [
   },
 ];
 
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(() => {
     console.log('DB conected');
     return User.create(userArray);
