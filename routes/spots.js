@@ -41,7 +41,10 @@ router.post('/new', upload.single('image'), (req, res, next) => {
     Spot.create({
       owner,
       name,
-      location,
+      location: {
+        type: "Point",
+        coordinates: location.split(',')
+      },
       description,
       image: result.url,
     })

@@ -3,7 +3,7 @@ const accessLogIn = document.querySelector('#login');
 const accessButton = document.querySelector('.access-button');
 const accessText = document.querySelector('.access-text');
 const card = document.querySelector('.access-card');
-const coordinatesTest = document.querySelector('#demo');
+const coordinatesTest = document.getElementById('demo');
 
 accessButton.addEventListener('click', () => {
   // accessSignUp.classList.toggle('hide');
@@ -29,7 +29,7 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  coordinatesTest.innerHTML = `${position.coords.longitude},${position.coords.latitude}`;
+  coordinatesTest.value = [position.coords.longitude, position.coords.latitude];
   console.log("Latitude: " + position.coords.latitude +
     " Longitude: " + position.coords.longitude);
 }
