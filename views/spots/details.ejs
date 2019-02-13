@@ -32,18 +32,18 @@
 <%}%>
 
 
-<div id='map'></div>
+<div id='map' class="urgente"></div>
 <script>
 
 mapboxgl.accessToken =<%-`"${token}"`%>;
 var map = new mapboxgl.Map({
 container: 'map', // container id
 style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
-center: [<%=spot.location%>], // starting position [lng, lat]
+center: [2.1905475,41.3977807], // starting position [lng, lat]
 zoom: 15 // starting zoom
 });
 new mapboxgl.Marker({anchor: 'center', color:'red'})
-.setLngLat([<%=spot.location%>])
+.setLngLat([2.1905475,41.3977807])
 .addTo(map);
-console.log("spot location: ",<%=spot.location%>)
+
 </script>

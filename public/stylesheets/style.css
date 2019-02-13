@@ -115,6 +115,10 @@ hr{
   text-align: justify;
 }
 
+.urgente{
+  text-align: justify;
+}
+
 /*****SPIN THE MAP************/
 .spots-card{
   position:absolute;
