@@ -64,7 +64,7 @@ hr{
 
 .access-action{
   position:absolute;
-  bottom:8rem;
+  bottom:6rem;
   right: 5rem;
   left: 5rem;
 
@@ -111,7 +111,7 @@ hr{
   margin: 3rem 1rem;
 }
 
-#show-map{
+.map-align{
   text-align: justify;
 }
 
