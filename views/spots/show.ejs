@@ -36,27 +36,6 @@
 </a>
 
 <script>
-  
-var city = document.getElementById('city');
-
-             
-function callback(data)
-{
-  
-  city.innerHTML = data.city;
-  console.log(typeof data.city)
-
-}
-
-var script = document.createElement('script');
-script.type = 'text/javascript';
-script.src = 'https://geoip-db.com/jsonp';
-var h = document.getElementsByTagName('script')[0];
-h.parentNode.insertBefore(script, h);
-           
-  </script>
-
-<script>
 
 mapboxgl.accessToken =<%-`"${token}"`%>;
 var map = new mapboxgl.Map({

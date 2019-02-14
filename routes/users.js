@@ -40,8 +40,16 @@ router.post('/edit', upload.single('image'), (req, res, next) => {
 
 /* Put in the buttom just in case */
 router.get('/:username', (req, res, next) => {
+  const Spot = require('../models/spot');
+  const { username } = req.params;
   if (res.locals.currentUser.username === req.params.username) {
-    res.render('user/profile', { title: 'User route' });
+    User.findOne({ username })
+      .then((user) => {
+        Spot.find({ owner: user._id })
+          .then((spotByOwner) => {
+            res.render('user/profile', { spotByOwner, title: 'User route' });
+          });
+      });
   } else {
     res.redirect('/');
   }
@@ -49,12 +57,19 @@ router.get('/:username', (req, res, next) => {
 /* To enter to owner's profile by clicking on the user name in the spot details */
 router.get('/guest/:username', (req, res, next) => {
   const { username } = req.params;
+  const Spot = require('../models/spot');
   if (username === req.session.currentUser.username) {
     res.redirect(`/users/${username}`);
   }
   User.findOne({ username })
     .then((owner) => {
-      res.render('user/profile-guest', { owner });
+      User.findOne({ username })
+        .then((user) => {
+          Spot.find({ owner: user._id })
+            .then((spotByOwner) => {
+              res.render('user/profile-guest', { owner, spotByOwner });
+            });
+        });
     })
     .catch(next);
 });
