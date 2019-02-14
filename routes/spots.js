@@ -50,7 +50,7 @@ router.post('/new', upload.single('image'), (req, res, next) => {
       },
       city,
       description,
-      image: result.url,
+      image: result.secure_url,
     })
       .then((spot) => {
         spot.save();
