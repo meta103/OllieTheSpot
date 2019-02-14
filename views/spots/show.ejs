@@ -36,6 +36,27 @@
 </a>
 
 <script>
+  
+var city = document.getElementById('city');
+
+             
+function callback(data)
+{
+  
+  city.innerHTML = data.city;
+  console.log(typeof data.city)
+
+}
+
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = 'https://geoip-db.com/jsonp';
+var h = document.getElementsByTagName('script')[0];
+h.parentNode.insertBefore(script, h);
+           
+  </script>
+
+<script>
 mapboxgl.accessToken =<%-`"${token}"`%>;
 var map = new mapboxgl.Map({
 container: 'show-map', // container id
@@ -43,12 +64,6 @@ style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
 center: [<%=location%>],// starting position [lng, lat]
 zoom: 11 // starting zoom
 });
-if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        var pos = [position.coord.longitude, position.coords.latitude];
-        map.setCenter(pos);
-      });
-    }
 <%spots.forEach((spot) =>{%>
 
 new mapboxgl.Marker({name: '<%=spot.name%>',anchor: 'center', color:'red'})
