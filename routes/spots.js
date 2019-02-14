@@ -21,7 +21,6 @@ router.get('/', (req, res, next) => {
   Spot.find()
     .then((spots) => {
       res.render('spots/show', { spots, token: process.env.MAPBOX, currentLocation: 1 });
-      console.log('holaaaaaaa: ', req.session.currentUser.location);
     })
     .catch((err) => {
       console.log(err);

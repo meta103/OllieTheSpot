@@ -57,7 +57,6 @@ h.parentNode.insertBefore(script, h);
   </script>
 
 <script>
-console.log()
 mapboxgl.accessToken =<%-`"${token}"`%>;
 var map = new mapboxgl.Map({
 container: 'show-map', // container id
@@ -65,12 +64,6 @@ style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
 center: [<%=location%>],// starting position [lng, lat]
 zoom: 11 // starting zoom
 });
-if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        var pos = [position.coord.longitude, position.coords.latitude];
-        map.setCenter(pos);
-      });
-    }
 <%spots.forEach((spot) =>{%>
 
 new mapboxgl.Marker({name: '<%=spot.name%>',anchor: 'center', color:'red'})
