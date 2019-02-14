@@ -186,23 +186,14 @@ hr{
   z-index: 1;
 }
 
-.features-icons {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
+.enter-button{
+  position: absolute;
+  top:400px;
+  
 }
 
-.features-icons .features-icons-item {
-  max-width: 20rem;
-}
-
-.features-icons .features-icons-item .features-icons-icon {
-  height: 7rem;
-}
-
-.features-icons .features-icons-item .features-icons-icon i {
-  font-size: 4.5rem;
-}
-
-.features-icons .features-icons-item:hover .features-icons-icon i {
-  font-size: 5rem;
+.landing-page-img{
+  background-size:cover;
+	background-position:center;
+  background-repeat:no-repeat;
 }
