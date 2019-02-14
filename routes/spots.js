@@ -42,8 +42,8 @@ router.post('/new', upload.single('image'), (req, res, next) => {
       owner,
       name,
       location: {
-        type: "Point",
-        coordinates: location.split(',')
+        type: 'Point',
+        coordinates: location.split(','),
       },
       description,
       image: result.url,

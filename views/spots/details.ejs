@@ -39,11 +39,11 @@ mapboxgl.accessToken =<%-`"${token}"`%>;
 var map = new mapboxgl.Map({
 container: 'map', // container id
 style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
-center: [<%=spot.location%>], // starting position [lng, lat]
+center: [<%=spot.location.coordinates%>], // starting position [lng, lat]
 zoom: 15 // starting zoom
 });
 new mapboxgl.Marker({anchor: 'center', color:'red'})
-.setLngLat([<%=spot.location%>])
+.setLngLat([<%=spot.location.coordinates%>])
 .addTo(map);
-console.log("spot location: ",<%=spot.location%>)
+console.log("spot location: ",<%=spot.location.coordinates%>)
 </script>

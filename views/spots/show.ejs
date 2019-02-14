@@ -38,6 +38,7 @@
 
 
 <script>
+
 mapboxgl.accessToken =<%-`"${token}"`%>;
 var map = new mapboxgl.Map({
 container: 'show-map', // container id
@@ -46,11 +47,16 @@ center: [2.154007,41.390205], // starting position [lng, lat]
 zoom: 15 // starting zoom
 });
 
-spots.forEach((spot) => {
-  
-new mapboxgl.Marker({anchor: 'center', color:'red'})
-.setLngLat([spot.location])
+<%spots.forEach((spot) =>{%>
+console.log(<%=spot.location.coordinates%>)
+new mapboxgl.Marker({name: '<%=spot.name%>',anchor: 'center', color:'red'})
+.setLngLat([<%=spot.location.coordinates%>])
 .addTo(map);
-})
+ new mapboxgl.Popup({offset: popupOffsets, className: 'my-class'})
+  .setLngLat([<%=spot.location.coordinates%>])
+  .setHTML("<h1>Hello World!</h1>")
+  .addTo(map);
+<%})%>
+
 
 </script>
