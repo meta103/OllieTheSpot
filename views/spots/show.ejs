@@ -57,21 +57,26 @@ h.parentNode.insertBefore(script, h);
   </script>
 
 <script>
-
+console.log()
 mapboxgl.accessToken =<%-`"${token}"`%>;
 var map = new mapboxgl.Map({
 container: 'show-map', // container id
 style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
-center: [2.154007,41.390205], // starting position [lng, lat]
-zoom: 15 // starting zoom
+center: [<%=location%>],// starting position [lng, lat]
+zoom: 11 // starting zoom
 });
-
+if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        var pos = [position.coord.longitude, position.coords.latitude];
+        map.setCenter(pos);
+      });
+    }
 <%spots.forEach((spot) =>{%>
-console.log(<%=spot.location.coordinates%>)
+
 new mapboxgl.Marker({name: '<%=spot.name%>',anchor: 'center', color:'red'})
 .setLngLat([<%=spot.location.coordinates%>])
 .addTo(map);
- new mapboxgl.Popup({offset: popupOffsets, className: 'my-class'})
+ new mapboxgl.Popup({offset: popupOffsets,anchor: 'center', className: 'my-class'})
   .setLngLat([<%=spot.location.coordinates%>])
   .setHTML("<h1>Hello World!</h1>")
   .addTo(map);

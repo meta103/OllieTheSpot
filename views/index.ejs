@@ -1,4 +1,7 @@
 <img src="https://res.cloudinary.com/ollie-the-spot/image/upload/v1549986088/ollithespot.png" class="img-fluid" alt="">
 <h1><%= title %></h1>
 <p>Welcome to <%= title %></p>
-<a href="/auth"> ENTER </a>
+<form action="/" method="post" class="form-control">
+<input type="hidden" name="location" placeholder="Choose the location" id="demo" class="form-control" value="" required></input>
+<button type="submit"> ENTER </button>
+<form>

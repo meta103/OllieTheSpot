@@ -20,7 +20,8 @@ const User = require('../models/user');
 router.get('/', (req, res, next) => {
   Spot.find()
     .then((spots) => {
-      res.render('spots/show', { spots, token: process.env.MAPBOX });
+      res.render('spots/show', { spots, token: process.env.MAPBOX, currentLocation: 1 });
+      console.log('holaaaaaaa: ', req.session.currentUser.location);
     })
     .catch((err) => {
       console.log(err);
@@ -33,7 +34,9 @@ router.get('/new', (req, res, next) => {
 });
 
 router.post('/new', upload.single('image'), (req, res, next) => {
-  const { name, location, city, description } = req.body;
+  const {
+    name, location, city, description,
+  } = req.body;
   console.log('NAME OF THE CITYYYYYYYY IS', city);
   const owner = req.session.currentUser._id;
   const image = req.file;
