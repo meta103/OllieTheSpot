@@ -33,7 +33,8 @@ router.get('/new', (req, res, next) => {
 });
 
 router.post('/new', upload.single('image'), (req, res, next) => {
-  const { name, location, description } = req.body;
+  const { name, location, city, description } = req.body;
+  console.log('NAME OF THE CITYYYYYYYY IS', city);
   const owner = req.session.currentUser._id;
   const image = req.file;
   const imagePathRaw = image.path;
@@ -45,6 +46,7 @@ router.post('/new', upload.single('image'), (req, res, next) => {
         type: 'Point',
         coordinates: location.split(','),
       },
+      city,
       description,
       image: result.url,
     })

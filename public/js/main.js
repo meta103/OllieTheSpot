@@ -8,6 +8,7 @@ const spotsContainer = document.querySelector('.spots-container');
 const spotsMap = document.querySelector('#show-map');
 const coordinatesTest = document.getElementById('demo');
 
+
 // spin the auth
 accessButton.addEventListener('click', () => {
   // accessSignUp.classList.toggle('hide');

@@ -14,7 +14,7 @@
             <img class="card-img-top" src="<%=spot.image%>" alt="Card image cap" width="286" height="180">
             <div class="card-body">
               <h5 class="card-title"><h3><%=spot.name%></h3></h5>
-              <h6 class="card-subtitle">Barcelona</h6>
+              <h6 class="card-subtitle"><%=spot.city%></h6>
               <p class="card-text description"><%=spot.description%></p>
               <a href="/spots/<%=spot._id%>" class="btn btn-primary">View details</a>
             </div>
@@ -35,7 +35,26 @@
 <a href="/spots/new" onclick="getLocation()" class="btn btn-lg btn-primary btn-block mt-2 fixed-bottom btn-circle btn-xl mb-2 mr-2"> <i class="fas fa-plus"></i>
 </a>
 
+<script>
+  
+var city = document.getElementById('city');
 
+             
+function callback(data)
+{
+  
+  city.innerHTML = data.city;
+  console.log(typeof data.city)
+
+}
+
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = 'https://geoip-db.com/jsonp';
+var h = document.getElementsByTagName('script')[0];
+h.parentNode.insertBefore(script, h);
+           
+  </script>
 
 <script>
 
