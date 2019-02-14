@@ -1,3 +1,4 @@
+
 const accessSignUp = document.querySelector('#sign-up');
 const accessLogIn = document.querySelector('#login');
 const accessButton = document.querySelector('.access-button');
@@ -23,23 +24,28 @@ accessButton.addEventListener('click', () => {
   }
   console.log('hi');
 });
+
 // spin the map in spots
 function turnmap() {
   spotsCard.classList.toggle('access-card-hover');
   spotsCard.classList.toggle('align-center');
   spotsContainer.classList.toggle('hide');
 }
-function getLocation() {
-  console.log('GEOLOCATION FUNCTION CALLED');
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
+function main() {
+  function getLocation() {
+    console.log('GEOLOCATION FUNCTION CALLED');
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+      return showPosition;
+    }
     x.innerHTML = 'Geolocation is not supported by this browser.';
   }
-}
 
-function showPosition(position) {
-  coordinatesTest.value = [position.coords.longitude, position.coords.latitude];
-  console.log("Latitude: " + position.coords.latitude +
-    " Longitude: " + position.coords.longitude);
+  function showPosition(position) {
+    coordinatesTest.value = [position.coords.longitude, position.coords.latitude];
+    console.log(`Latitude: ${position.coords.latitude
+    } Longitude: ${position.coords.longitude}`);
+    return [position.coords.longitude, position.coords.latitude];
+  }
+  getLocation();
 }
