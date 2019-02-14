@@ -12,6 +12,9 @@
   <div class="form-group">
     <input type="hidden" name="location" placeholder="Choose the location" id="demo" class="form-control" value="" required></input>
   </div>
+  <div class="form-group">
+    <input type="hidden" name="city" placeholder="CITY" id="city" class="form-control" value="" required></input>
+  </div>
   <div class="form-group">  
     <label for="">Description</label>
     <textarea class="form-control" rows="6" name="description" placeholder="Write a short description of the spot" required></textarea>
@@ -23,6 +26,18 @@
 
 <p id="demo"></p>
 
+<script>
+let city = document.getElementById('city');
 
+function callback(data) {
+  city.value = data.city;
+  console.log(data.city);
+}
 
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = 'https://geoip-db.com/jsonp';
+var h = document.getElementsByTagName('script')[0];
+h.parentNode.insertBefore(script, h);
 
+</script>
