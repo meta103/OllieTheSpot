@@ -21,7 +21,6 @@ accessButton.addEventListener('click', () => {
     accessText.innerHTML = 'Do you have an account?';
     accessButton.innerHTML = 'Log in';
   }
-  console.log('hi');
 });
 
 // spin the map in spots
