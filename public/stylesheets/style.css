@@ -197,3 +197,14 @@ hr{
   background-repeat:no-repeat;
   min-height: 100vh;
 }
+
+#map-button{
+  border: none;
+  background: white;
+  width:1rem;
+}
+.fa-map-marker-alt:before {
+  content: "\f3c5";
+  color: #dd2f44;
+  
+}
