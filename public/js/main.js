@@ -1,5 +1,5 @@
-const accessSignUp = document.querySelector('#sign-up');
-const accessLogIn = document.querySelector('#login');
+const accessSignUp = document.querySelector('.signup-div');
+const accessLogIn = document.querySelector('.login-div');
 const accessButton = document.querySelector('.access-button');
 const accessText = document.querySelector('.access-text');
 const card = document.querySelector('.access-card');
@@ -11,8 +11,8 @@ const coordinatesTest = document.getElementById('demo');
 
 // spin the auth
 accessButton.addEventListener('click', () => {
-  // accessSignUp.classList.toggle('hide');
-  // accessLogIn.classList.toggle('hide');
+  accessSignUp.classList.toggle('hide');
+  accessLogIn.classList.toggle('hide');
   card.classList.toggle('access-card-hover');
   if (accessButton.innerHTML === 'Log in') {
     accessText.innerHTML = 'Don\'t have an account yet?';
@@ -42,7 +42,7 @@ function main() {
   function showPosition(position) {
     coordinatesTest.value = [position.coords.longitude, position.coords.latitude];
     console.log(`Latitude: ${position.coords.latitude
-      } Longitude: ${position.coords.longitude}`);
+    } Longitude: ${position.coords.longitude}`);
     return [position.coords.longitude, position.coords.latitude];
   }
   getLocation();
