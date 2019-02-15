@@ -65,11 +65,12 @@ center: [<%=location%>],// starting position [lng, lat]
 zoom: 11 // starting zoom
 });
 
+<%spots.forEach((spot) => { %>
+var popup = new mapboxgl.Popup()
+    .setText("<%=spot.name%>");
 new mapboxgl.Marker({name: 'a',anchor: 'center', color:'red'})
-.setLngLat([ 70.20043,18.6870])
+.setLngLat([<%=spot.location.coordinates%>])
+.setPopup(popup)
 .addTo(map);
-
-new mapboxgl.Marker({name: 'a',anchor: 'center', color:'red'})
-.setLngLat([ 70.20043,19.6870])
-.addTo(map);
+<% }) %>
 </script>
