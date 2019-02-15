@@ -64,16 +64,12 @@ style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
 center: [<%=location%>],// starting position [lng, lat]
 zoom: 11 // starting zoom
 });
-<%spots.forEach((spot) =>{%>
 
-new mapboxgl.Marker({name: '<%=spot.name%>',anchor: 'center', color:'red'})
-.setLngLat([<%=spot.location.coordinates%>])
+new mapboxgl.Marker({name: 'a',anchor: 'center', color:'red'})
+.setLngLat([ 70.20043,18.6870])
 .addTo(map);
- new mapboxgl.Popup({offset: popupOffsets,anchor: 'center', className: 'my-class'})
-  .setLngLat([<%=spot.location.coordinates%>])
-  .setHTML("<h1>Hello World!</h1>")
-  .addTo(map);
-<%})%>
 
-
+new mapboxgl.Marker({name: 'a',anchor: 'center', color:'red'})
+.setLngLat([ 70.20043,19.6870])
+.addTo(map);
 </script>
