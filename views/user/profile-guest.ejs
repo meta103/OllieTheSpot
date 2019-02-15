@@ -12,13 +12,18 @@
   <h4><strong>My Spots</strong></h4>
   <hr>
   <%spotByOwner.forEach((spot) =>{%>
-  <div class="spots-div-profile" style= "background-image: url(<%=spot.image%>);">
+  <a href="/spots/<%=spot._id %>">
+    <div class="spots-div-profile" style= "background-image: url(<%=spot.image%>);">
     <div class="filter-black-div">
+      
     </div>
     <h3 class="spot-names-profile">
       <%=spot.name %>
       </h3>
-  </div>  
+    </div>  
+  </a>
     
   <%})%>
+
+  
 </div>

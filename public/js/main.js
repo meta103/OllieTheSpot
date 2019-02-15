@@ -1,4 +1,3 @@
-
 const accessSignUp = document.querySelector('#sign-up');
 const accessLogIn = document.querySelector('#login');
 const accessButton = document.querySelector('.access-button');
@@ -43,7 +42,7 @@ function main() {
   function showPosition(position) {
     coordinatesTest.value = [position.coords.longitude, position.coords.latitude];
     console.log(`Latitude: ${position.coords.latitude
-    } Longitude: ${position.coords.longitude}`);
+      } Longitude: ${position.coords.longitude}`);
     return [position.coords.longitude, position.coords.latitude];
   }
   getLocation();
