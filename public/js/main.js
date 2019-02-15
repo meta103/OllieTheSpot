@@ -37,7 +37,6 @@ function main() {
       navigator.geolocation.getCurrentPosition(showPosition);
       return showPosition;
     }
-    x.innerHTML = 'Geolocation is not supported by this browser.';
   }
 
   function showPosition(position) {
