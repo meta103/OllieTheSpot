@@ -1,4 +1,3 @@
-
 const accessSignUp = document.querySelector('#sign-up');
 const accessLogIn = document.querySelector('#login');
 const accessButton = document.querySelector('.access-button');
