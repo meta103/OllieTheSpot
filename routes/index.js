@@ -7,12 +7,18 @@ router.get('/', (req, res, next) => {
   res.render('index', { title: 'ollie the spot' });
 });
 router.post('/', (req, res, next) => {
-  if (req.body.location) {
-    req.session.location = req.body.location.split(',');
-  } else {
-    req.session.location = [2.190641, 41.397706];
+  if (req.body.location == "") {
+    req.session.location = "2.1905802,41.397759199999996";
+    console.log(req.session.location)
   }
-  console.log('res.locals.currentUser.location: ', res.locals.currentUser.location);
+  else {
+    req.session.location = req.body.location.split(',');
+    console.log("internet working mother focker")
+
+  }
+
+
+
   res.redirect('/auth');
 });
 

@@ -86,9 +86,9 @@ router.get('/:id/edit', (req, res, next) => {
 
 router.post('/:id/edit', (req, res, next) => {
   const { id } = req.params;
-  const { name, description, location } = req.body;
-  console.log(name, description, location);
-  Spot.findByIdAndUpdate({ _id: id }, { name, description, location })
+  const { name, description } = req.body;
+  console.log(name, description);
+  Spot.findByIdAndUpdate({ _id: id }, { name, description })
     .then(() => {
       res.redirect(`/spots/${id}`);
     })
