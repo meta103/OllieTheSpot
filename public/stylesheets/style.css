@@ -195,7 +195,7 @@ hr{
   background-size:cover;
 	background-position:center;
   background-repeat:no-repeat;
-  min-height: 100vh;
+  max-height: 100vh;
 }
 
 #map-button{
@@ -207,4 +207,10 @@ hr{
   content: "\f3c5";
   color: #dd2f44;
   
+}
+
+.start-button{
+  width: 300px;
+  vertical-align: center;
+  margin: auto;
 }
